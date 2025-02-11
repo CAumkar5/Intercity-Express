@@ -1,0 +1,353 @@
+1.Database Creation
+
+--to create database
+create database intercityy;
+
+--to use created database
+use intercityy;
+==================================================================================================================================================================
+2.Create statements to create tables
+
+-- agent
+create table agent (aid varchar(20) primary key, aname varchar(20), contactno varchar(20), email varchar(40), address varchar(40), commission float);
+
+-- booking
+create table booking (bid varchar(20) primary key, sid varchar(20), bdate datetime, booker_pid varchar(20), aid varchar(20), seater_pid varchar(20), bstatus varchar(20));
+alter table booking add constraint fk_sid2 foreign key (sid) references schedule(sid);
+alter table booking add constraint fk_pid foreign key (booker_pid) references passenger (pid);
+alter table booking add constraint fk_pid2 foreign key (seater_pid) references passenger (pid);
+alter table standbycoach add constraint fk_aid foreign key (aid) references agent (aid);
+
+-- coach
+create table coach (cid varchar(20) primary key, cname varchar(40), capacity int, mileage int, facilities varchar(60));
+
+-- maintenance
+create table maintenance (mid varchar(20) primary key, cid varchar(20), status varchar(20), lastmaintenance date, nextmaintenancedate date);
+alter table maintenance add constraint fk_cid2 foreign key (cid) references coach (cid);
+
+-- standbycoach
+create table standbycoach (stdid varchar(20) primary key, cid varchar(20), sid varchar(20), stid varchar(20), atvstatus varchar(20), stdcid varchar(20), activetime datetime);
+alter table standbycoach add constraint fk_cid5 foreign key (cid) references coach (cid);
+alter table standbycoach add constraint fk_sid foreign key (sid) references schedule (sid);
+alter table standbycoach add constraint fk_stid foreign key (stid) references scheduletracking (stid);
+alter table standbycoach add constraint fk_cid6 foreign key (stdcid) references coach (cid);
+
+-- route
+create table route (rid varchar(20) primary key, source varchar(20), dest varchar(20), distance int, duration time, operating_days varchar(60));
+
+-- driver
+create table driver (did varchar(20) primary key, name varchar(20), contactno varchar(20), homecity varchar(20), restday varchar(20));
+
+-- intermediatestation
+create table intermediatestation (stid varchar(20) primary key, stname varchar(20), taluka varchar(20), state varchar(20), country varchar(20));
+
+-- schedule
+create table schedule (sid varchar(20) primary key, cid varchar(20), rid varchar(20), departure datetime, arrival datetime);
+alter table schedule add constraint fk_cid foreign key (cid) references coach (cid);
+alter table schedule add constraint fk_rid foreign key (rid) references route (rid);
+
+-- intermediatestation_schedule
+create table intermediatestation_schedule (rid varchar(20), stid varchar(20), stop_order int, st_departure datetime, st_arrival datetime, primary key (rid, stid, stop_order));
+alter table intermediatestation_schedule add foreign key (rid) references route (rid);
+alter table intermediatestation_schedule add foreign key (stid) references intermediateschedule (stid);
+
+-- scheduleTracking
+create table scheduleTracking (strackid varchar(20) primary key, cid varchar(20), rid varchar(20), actual_departure datetime, actual_arrival datetime);
+alter table schedule add constraint fk_cid7 foreign key (cid) references coach (cid);
+alter table schedule add constraint fk_rid5 foreign key (rid) references route (rid);
+
+-- passenger
+create table passenger (pid varchar(20) primary key, pname varchar(20), age int, agegroup varchar(20), contactno varchar(20), address varchar(40));
+
+-- ticket
+create table ticket (tid varchar(20) primary key, bid varchar(20), pid varchar(20), seatno varchar(20), actual_price float, discount float, total_price float);
+alter table ticket add constraint fk_bid foreign key (bid) references booking (bid);
+alter table schedule add constraint fk_pid3 foreign key (pid) references passenger (pid);
+
+-- roster
+create table roster (did varchar(20), date date, time time, rid varchar(20), remark varchar(20), primary key (did, date, time, rid));
+alter table roster add constraint fk_did foreign key (did) references driver (did);
+alter table roster add constraint fk_rid2 foreign key (rid) references route (rid);
+
+==================================================================================================================================================================
+
+3.Insertion statements to add sample data in tables
+
+-- agent
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/agent.csv"
+    -> into table agent
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- booking
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/booking.csv"
+    -> into table booking
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- coach
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/coach.csv"
+    -> into table coach
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- maintenance
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/maintenance.csv"
+    -> into table maintenance
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- standbycoach
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/standbycoach.csv"
+    -> into table standbycoach
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- route
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/route.csv"
+    -> into table route
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- driver
+ mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/driver.csv"
+    -> into table driver
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- intermediatestation
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/station.csv"
+    -> into table intermediatestation
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- schedule
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/schedule.csv"
+    -> into table schedule
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- intermediatestation_schedule
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/station_schedule.csv"
+    -> into table intermediatestation_schedule
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- scheduleTracking
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/scheduleTracking.csv"
+    -> into table scheduleTracking
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- passenger
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/passenger.csv"
+    -> into table passenger
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- ticket
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/ticket.csv"
+    -> into table ticket
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+-- roster
+mysql> load data infile "C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/Intercity_db/roster.csv"
+    -> into table roster
+    -> fields terminated by ","
+    -> enclosed by '"'
+    -> lines terminated by "\r\n"
+    -> ignore 1 lines;
+
+==================================================================================================================================================================
+
+4.Description of each table
+-- agent
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| aid        | varchar(20) | NO   | PRI | NULL    |       |
+| aname      | varchar(20) | YES  |     | NULL    |       |
+| contactno  | varchar(20) | YES  |     | NULL    |       |
+| email      | varchar(40) | YES  |     | NULL    |       |
+| address    | varchar(40) | YES  |     | NULL    |       |
+| commission | float       | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+
+-- booking
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| bid        | varchar(20) | NO   | PRI | NULL    |       |
+| sid        | varchar(20) | YES  | MUL | NULL    |       |
+| bdate      | datetime    | YES  |     | NULL    |       |
+| booker_pid | varchar(20) | YES  | MUL | NULL    |       |
+| aid        | varchar(20) | YES  | MUL | NULL    |       |
+| seater_pid | varchar(20) | YES  | MUL | NULL    |       |
+| bstatus    | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+
+-- coach
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| cid        | varchar(20) | NO   | PRI | NULL    |       |
+| cname      | varchar(40) | YES  |     | NULL    |       |
+| capacity   | int         | YES  |     | NULL    |       |
+| mileage    | int         | YES  |     | NULL    |       |
+| facilities | varchar(60) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+
+-- maintenance
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| mid                 | varchar(20) | NO   | PRI | NULL    |       |
+| cid                 | varchar(20) | NO   | MUL | NULL    |       |
+| status              | varchar(20) | YES  |     | NULL    |       |
+| lastmaintenance     | date        | YES  |     | NULL    |       |
+| nextmaintenancedate | date        | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+
+-- standbycoach
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| stdid      | varchar(20) | NO   | PRI | NULL    |       |
+| cid        | varchar(20) | YES  | MUL | NULL    |       |
+| sid        | varchar(20) | YES  | MUL | NULL    |       |
+| stid       | varchar(20) | YES  | MUL | NULL    |       |
+| atvstatus  | varchar(20) | YES  |     | NULL    |       |
+| stdcid     | varchar(20) | YES  | MUL | NULL    |       |
+| activetime | datetime    | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+
+-- route
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| rid            | varchar(20) | NO   | PRI | NULL    |       |
+| source         | varchar(20) | YES  |     | NULL    |       |
+| dest           | varchar(20) | YES  |     | NULL    |       |
+| distance       | int         | YES  |     | NULL    |       |
+| duration       | time        | YES  |     | NULL    |       |
+| operating_days | varchar(60) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+
+-- driver
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| did       | varchar(20) | NO   | PRI | NULL    |       |
+| name      | varchar(20) | YES  |     | NULL    |       |
+| contactno | varchar(20) | YES  |     | NULL    |       |
+| homecity  | varchar(20) | YES  |     | NULL    |       |
+| restday   | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+-- intermediatestation
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| stid    | varchar(20) | NO   | PRI | NULL    |       |
+| stname  | varchar(20) | YES  |     | NULL    |       |
+| taluka  | varchar(20) | YES  |     | NULL    |       |
+| state   | varchar(20) | YES  |     | NULL    |       |
+| country | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
+-- schedule
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| sid       | varchar(20) | NO   | PRI | NULL    |       |
+| cid       | varchar(20) | NO   | PRI | NULL    |       |
+| rid       | varchar(20) | NO   | PRI | NULL    |       |
+| departure | datetime    | YES  |     | NULL    |       |
+| arrival   | datetime    | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+-- intermediatestation_schedule
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| rid          | varchar(20) | NO   | PRI | NULL    |       |
+| stid         | varchar(20) | NO   | PRI | NULL    |       |
+| stop_order   | int         | NO   | PRI | NULL    |       |
+| st_departure | datetime    | YES  |     | NULL    |       |
+| st_arrival   | datetime    | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+-- scheduleTracking
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| strackid         | varchar(20) | NO   | PRI | NULL    |       |
+| cid              | varchar(20) | NO   | PRI | NULL    |       |
+| rid              | varchar(20) | NO   | PRI | NULL    |       |
+| actual_departure | datetime    | YES  |     | NULL    |       |
+| actual_arrival   | datetime    | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+
+-- passenger
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| pid       | varchar(20) | NO   | PRI | NULL    |       |
+| pname     | varchar(20) | YES  |     | NULL    |       |
+| age       | int         | YES  |     | NULL    |       |
+| agegroup  | varchar(20) | YES  |     | NULL    |       |
+| contactno | varchar(20) | YES  |     | NULL    |       |
+| address   | varchar(40) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+-- ticket
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| tid          | varchar(20) | NO   | PRI | NULL    |       |
+| bid          | varchar(20) | YES  | MUL | NULL    |       |
+| pid          | varchar(20) | YES  | MUL | NULL    |       |
+| seatno       | varchar(20) | YES  |     | NULL    |       |
+| actual_price | float       | YES  |     | NULL    |       |
+| discount     | float       | YES  |     | NULL    |       |
+| total_price  | float       | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+-- roster
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| did    | varchar(20) | NO   | PRI | NULL    |       |
+| date   | date        | NO   | PRI | NULL    |       |
+| time   | time        | NO   | PRI | NULL    |       |
+| rid    | varchar(20) | NO   | PRI | NULL    |       |
+| remark | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+

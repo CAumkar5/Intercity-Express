@@ -1,0 +1,21 @@
+﻿route_id,source,destination,distance,duration,operating_days
+RF101,Mumbai Central,Gandhinagar,548,05:40:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"
+RB101,Gandhinagar,Mumbai Central,548,05:40:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"
+RF201,New Delhi,Himachal,412,06:10:00,"Monday,Tuesday,Wednesday,Friday,Saturday,Sunday"
+RB201,Himachal,New Delhi,412,06:10:00,"Monday,Tuesday,Wednesday,Friday,Saturday,Sunday"
+RF401,Secunderabad,Visakhapatnam,500,08:30:00,Sunday
+RB401,Visakhapatnam,Secunderabad,500,08:30:00,Sunday
+RF202,Mumbai,Sainagar Shirdi,248,05:20:00,"Monday,Wednesday,Thursday,Friday,Saturday,Sunday"
+RB202,Sainagar Shirdi,Mumbai,248,05:20:00,"Monday,Wednesday,Thursday,Friday,Saturday,Sunday"
+RF203,Mumbai,Solapur,400,06:35:00,"Monday,Tuesday,Thursday,Friday,Saturday,Sunday"
+RB203,Solapur,Mumbai,400,06:35:00,"Monday,Tuesday,Thursday,Friday,Saturday,Sunday"
+RF302,Bhopal,Delhi,700,07:45:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Sunday"
+RB302,Delhi,Bhopal,700,07:45:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Sunday"
+RF501,Lonavala,Ajmer,1062,10:45:00,Saturday
+RB501,Ajmer,Lonavala,1062,10:45:00,Saturday
+RF601,Dharwad,Bengaluru,432,05:00:00,"Monday,Wednesday,Saturday"
+RB601,Bengaluru,Dharwad,432,05:00:00,"Monday,Wednesday,Saturday"
+RF301,Bhopal,Indore,246,03:00:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday"
+RB301,Indore,Bhopal,246,03:00:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday"
+RF204,Mumbai,Goa,588,06:00:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday"
+RB204,Goa,Mumbai,588,06:00:00,"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday"

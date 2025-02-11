@@ -1,0 +1,16 @@
+﻿CoachId,CoachName,Capacity,Mileage,facilities
+C101,Vande Bharat,30,5000,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C102,Janshatabdi,30,4800,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C103,Duronto,30,5200,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C104,LTT VSKP Express,30,4300,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C105,Grand Trunk Express,30,5500,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C106,SUR AII SF SPL,30,6000,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C107,VSG YPR EXP,30,4900,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C108,Malwa Express,30,5100,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C109,Mandovi Express,30,4700,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C110,Hubli Express,30,5300,"Meal Services, Wi-Fi, Reading Materials, Air Conditioning"
+C111,Luxury Liner,45,5700,"Wi-Fi,AC"
+C112,Executive Coach,35,4000,"TV,AC"
+C113,Comfort Cruiser Express,25,3600,AC
+C114,Cozy Cabin,15,4800,"AC,Meal Services"
+C115,Premium Pod ,55,5300,No AC

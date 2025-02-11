@@ -1,0 +1,16 @@
+﻿agent_id,agent_name,contactno,email,address,commission
+A001, Arjun Sharma,987654321, arjun.sharma123@email.co.in," 123 Sunset Avenue,Pune",0.1
+A002, Priya Patel,876543210, priya.patel456@gmail.com," 456 Sunrise Street,Delhi",0.1
+A003, Rajiv Singh,765432109, rajiv.singh789@yahoo.com," 789 Moonlight Road,Mumbai",0.1
+A004, Ananya Kapoor,890123456, ananya.kapoor234@hotmail.com," 234 Starry Lane,Bengaluru",0.1
+A005, Vikram Verma,876549876, vikram.verma567@email.xyz," 567 Galaxy Street,Chennai",0.1
+A006, Nandini Gupta,654321098, nandini.gupta890@email.org," 890 Nebula Avenue,Kolkata",0.1
+A007, Rohan Desai,987654321, rohan.desai123@email.net," 123 Celestial Road,Hyderabad",0.1
+A008, Kavya Reddy,876543210, kavya.reddy456@email.co," 456 Stardust Lane,Ahmedabad",0.1
+A009, Aryan Khanna,765432109, aryan.khanna789@email.in," 789 Meteor Street,Jaipur",0.1
+A010, Aisha Malik,890123456, aisha.malik345@email.com," 901 Comet Avenue,Lucknow",0.1
+A011, Siddharth Mehta,987654321, siddharth.mehta234@email.co.uk," 234 Eclipse Road,Chandigarh",0.1
+A012, Sneha Joshi,876543210, sneha.joshi567@email.biz," 567 Aurora Lane,Bhopal",0.1
+A013, Aditya Kapoor,765432109, aditya.kapoor890@email.info," 890 Solar Street,Kochi",0.1
+A014, Amrita Singh,876549876, amrita.singh123@email.me," 123 Planetary Avenue,Goa",0.1
+A015, Rahul Kapoor,754321098, rahul.kapoor456@email.pro," 456 Galactic Road,Coimbatore",0.1
