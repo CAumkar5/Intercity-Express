@@ -158,126 +158,126 @@ SQL queries performed in order to create database for IntercityExpressTrains are
 
 #### List all trains not scheduled on 10th October this year.
 
-SQL Query :
-select c.cid , c.cname as train_name , s.departure from coach c , schedule s where c.cid=s.cid and date(s.departure) != '2023-10-10';
+    SQL Query :
+    select c.cid , c.cname as train_name , s.departure from coach c , schedule s where c.cid=s.cid and date(s.departure) != '2023-10-10';
 
-Output :
-+------+---------------------+---------------------+
-| cid  | train_name          | departure           |
-+------+---------------------+---------------------+
-| C101 | Vande Bharat        | 2023-10-20 08:00:00 |
-| C101 | Vande Bharat        | 2023-11-01 08:00:00 |
-| C101 | Vande Bharat        | 2023-11-15 08:00:00 |
-| C101 | Vande Bharat        | 2023-12-01 08:00:00 |
-| C102 | Janshatabdi         | 2023-10-21 09:30:00 |
-| C102 | Janshatabdi         | 2023-11-02 09:30:00 |
-| C102 | Janshatabdi         | 2023-11-16 09:30:00 |
-| C102 | Janshatabdi         | 2023-12-03 09:30:00 |
-| C102 | Janshatabdi         | 2023-09-01 08:00:00 |
-| C103 | Duronto             | 2023-10-22 11:00:00 |
-| C103 | Duronto             | 2023-11-03 11:00:00 |
-| C103 | Duronto             | 2023-11-17 11:00:00 |
-| C103 | Duronto             | 2023-12-05 11:00:00 |
-| C104 | LTT VSKP Express    | 2023-10-23 12:30:00 |
-| C104 | LTT VSKP Express    | 2023-11-04 12:30:00 |
-| C104 | LTT VSKP Express    | 2023-12-07 12:30:00 |
-| C104 | LTT VSKP Express    | 2023-11-19 12:30:00 |
-| C104 | LTT VSKP Express    | 2023-12-07 12:30:00 |
-| C104 | LTT VSKP Express    | 2023-09-02 09:30:00 |
-| C105 | Grand Trunk Express | 2023-10-24 14:00:00 |
-| C105 | Grand Trunk Express | 2023-11-05 14:00:00 |
-| C105 | Grand Trunk Express | 2023-12-09 14:00:00 |
-| C105 | Grand Trunk Express | 2023-11-20 14:00:00 |
-| C105 | Grand Trunk Express | 2023-12-09 14:00:00 |
-| C106 | SUR AII SF SPL      | 2023-10-25 15:30:00 |
-| C106 | SUR AII SF SPL      | 2023-11-06 15:30:00 |
-| C106 | SUR AII SF SPL      | 2023-12-11 15:30:00 |
-| C106 | SUR AII SF SPL      | 2023-11-22 15:30:00 |
-| C106 | SUR AII SF SPL      | 2023-12-11 15:30:00 |
-| C107 | VSG YPR EXP         | 2023-10-26 17:00:00 |
-| C107 | VSG YPR EXP         | 2023-11-07 17:00:00 |
-| C107 | VSG YPR EXP         | 2023-12-13 17:00:00 |
-| C107 | VSG YPR EXP         | 2023-11-24 17:00:00 |
-| C107 | VSG YPR EXP         | 2023-12-13 17:00:00 |
-| C107 | VSG YPR EXP         | 2023-09-03 11:00:00 |
-| C108 | Malwa Express       | 2023-10-27 18:30:00 |
-| C108 | Malwa Express       | 2023-11-08 18:30:00 |
-| C108 | Malwa Express       | 2023-12-15 18:30:00 |
-| C108 | Malwa Express       | 2023-11-26 18:30:00 |
-| C108 | Malwa Express       | 2023-12-15 18:30:00 |
-| C109 | Mandovi Express     | 2023-10-28 20:00:00 |
-| C109 | Mandovi Express     | 2023-11-09 20:00:00 |
-| C109 | Mandovi Express     | 2023-12-17 20:00:00 |
-| C109 | Mandovi Express     | 2023-11-28 20:00:00 |
-| C109 | Mandovi Express     | 2023-12-17 20:00:00 |
-| C110 | Hubli Express       | 2023-10-29 21:30:00 |
-| C110 | Hubli Express       | 2023-11-10 21:30:00 |
-| C110 | Hubli Express       | 2023-12-19 21:30:00 |
-| C110 | Hubli Express       | 2023-11-30 21:30:00 |
-| C110 | Hubli Express       | 2023-12-19 21:30:00 |
-| C110 | Hubli Express       | 2023-09-04 12:30:00 |
-| C111 | Luxury Liner        | 2023-09-05 14:00:00 |
-+------+---------------------+---------------------+
-
-
+    Output :
+    +------+---------------------+---------------------+
+    | cid  | train_name          | departure           |
+    +------+---------------------+---------------------+
+    | C101 | Vande Bharat        | 2023-10-20 08:00:00 |
+    | C101 | Vande Bharat        | 2023-11-01 08:00:00 |
+    | C101 | Vande Bharat        | 2023-11-15 08:00:00 |
+    | C101 | Vande Bharat        | 2023-12-01 08:00:00 |
+    | C102 | Janshatabdi         | 2023-10-21 09:30:00 |
+    | C102 | Janshatabdi         | 2023-11-02 09:30:00 |
+    | C102 | Janshatabdi         | 2023-11-16 09:30:00 |
+    | C102 | Janshatabdi         | 2023-12-03 09:30:00 |
+    | C102 | Janshatabdi         | 2023-09-01 08:00:00 |
+    | C103 | Duronto             | 2023-10-22 11:00:00 |
+    | C103 | Duronto             | 2023-11-03 11:00:00 |
+    | C103 | Duronto             | 2023-11-17 11:00:00 |
+    | C103 | Duronto             | 2023-12-05 11:00:00 |
+    | C104 | LTT VSKP Express    | 2023-10-23 12:30:00 |
+    | C104 | LTT VSKP Express    | 2023-11-04 12:30:00 |
+    | C104 | LTT VSKP Express    | 2023-12-07 12:30:00 |
+    | C104 | LTT VSKP Express    | 2023-11-19 12:30:00 |
+    | C104 | LTT VSKP Express    | 2023-12-07 12:30:00 |
+    | C104 | LTT VSKP Express    | 2023-09-02 09:30:00 |
+    | C105 | Grand Trunk Express | 2023-10-24 14:00:00 |
+    | C105 | Grand Trunk Express | 2023-11-05 14:00:00 |
+    | C105 | Grand Trunk Express | 2023-12-09 14:00:00 |
+    | C105 | Grand Trunk Express | 2023-11-20 14:00:00 |
+    | C105 | Grand Trunk Express | 2023-12-09 14:00:00 |
+    | C106 | SUR AII SF SPL      | 2023-10-25 15:30:00 |
+    | C106 | SUR AII SF SPL      | 2023-11-06 15:30:00 |
+    | C106 | SUR AII SF SPL      | 2023-12-11 15:30:00 |
+    | C106 | SUR AII SF SPL      | 2023-11-22 15:30:00 |
+    | C106 | SUR AII SF SPL      | 2023-12-11 15:30:00 |
+    | C107 | VSG YPR EXP         | 2023-10-26 17:00:00 |
+    | C107 | VSG YPR EXP         | 2023-11-07 17:00:00 |
+    | C107 | VSG YPR EXP         | 2023-12-13 17:00:00 |
+    | C107 | VSG YPR EXP         | 2023-11-24 17:00:00 |
+    | C107 | VSG YPR EXP         | 2023-12-13 17:00:00 |
+    | C107 | VSG YPR EXP         | 2023-09-03 11:00:00 |
+    | C108 | Malwa Express       | 2023-10-27 18:30:00 |
+    | C108 | Malwa Express       | 2023-11-08 18:30:00 |
+    | C108 | Malwa Express       | 2023-12-15 18:30:00 |
+    | C108 | Malwa Express       | 2023-11-26 18:30:00 |
+    | C108 | Malwa Express       | 2023-12-15 18:30:00 |
+    | C109 | Mandovi Express     | 2023-10-28 20:00:00 |
+    | C109 | Mandovi Express     | 2023-11-09 20:00:00 |
+    | C109 | Mandovi Express     | 2023-12-17 20:00:00 |
+    | C109 | Mandovi Express     | 2023-11-28 20:00:00 |
+    | C109 | Mandovi Express     | 2023-12-17 20:00:00 |
+    | C110 | Hubli Express       | 2023-10-29 21:30:00 |
+    | C110 | Hubli Express       | 2023-11-10 21:30:00 |
+    | C110 | Hubli Express       | 2023-12-19 21:30:00 |
+    | C110 | Hubli Express       | 2023-11-30 21:30:00 |
+    | C110 | Hubli Express       | 2023-12-19 21:30:00 |
+    | C110 | Hubli Express       | 2023-09-04 12:30:00 |
+    | C111 | Luxury Liner        | 2023-09-05 14:00:00 |
+    +------+---------------------+---------------------+
+    
+    
 #### List the details of most popular route of InterCity Express Trains.
 
-SQL Query :
-select r.*, count(s.rid) from route r, schedule s where r.rid = s.rid group by s.rid order by count(rid) desc;
-
-Output :
-+-------+-----------------+-----------------+----------+----------+----------------------------------------------------------+--------------+
-| rid   | source          | dest            | distance | duration | operating_days                                           | count(s.rid) |
-+-------+-----------------+-----------------+----------+----------+----------------------------------------------------------+--------------+
-| RF204 | Mumbai          | Goa             |      588 | 06:00:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday |            7 |
-| RB101 | Gandhinagar     | Mumbai Central  |      548 | 05:40:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday        |            6 |
-| RB201 | Himachal        | New Delhi       |      412 | 06:10:00 | Monday,Tuesday,Wednesday,Friday,Saturday,Sunday          |            6 |
-| RF202 | Mumbai          | Sainagar Shirdi |      248 | 05:20:00 | Monday,Wednesday,Thursday,Friday,Saturday,Sunday         |            6 |
-| RF203 | Mumbai          | Solapur         |      400 | 06:35:00 | Monday,Tuesday,Thursday,Friday,Saturday,Sunday           |            6 |
-| RB202 | Sainagar Shirdi | Mumbai          |      248 | 05:20:00 | Monday,Wednesday,Thursday,Friday,Saturday,Sunday         |            5 |
-| RF201 | New Delhi       | Himachal        |      412 | 06:10:00 | Monday,Tuesday,Wednesday,Friday,Saturday,Sunday          |            5 |
-| RB203 | Solapur         | Mumbai          |      400 | 06:35:00 | Monday,Tuesday,Thursday,Friday,Saturday,Sunday           |            4 |
-| RB204 | Goa             | Mumbai          |      588 | 06:00:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday |            4 |
-| RF101 | Mumbai Central  | Gandhinagar     |      548 | 05:40:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday        |            4 |
-| RB301 | Indore          | Bhopal          |      246 | 03:00:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday |            1 |
-| RB501 | Ajmer           | Lonavala        |     1062 | 10:45:00 | Saturday                                                 |            1 |
-+-------+-----------------+-----------------+----------+----------+----------------------------------------------------------+--------------+
-
-
+    SQL Query :
+    select r.*, count(s.rid) from route r, schedule s where r.rid = s.rid group by s.rid order by count(rid) desc;
+    
+    Output :
+    +-------+-----------------+-----------------+----------+----------+----------------------------------------------------------+--------------+
+    | rid   | source          | dest            | distance | duration | operating_days                                           | count(s.rid) |
+    +-------+-----------------+-----------------+----------+----------+----------------------------------------------------------+--------------+
+    | RF204 | Mumbai          | Goa             |      588 | 06:00:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday |            7 |
+    | RB101 | Gandhinagar     | Mumbai Central  |      548 | 05:40:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday        |            6 |
+    | RB201 | Himachal        | New Delhi       |      412 | 06:10:00 | Monday,Tuesday,Wednesday,Friday,Saturday,Sunday          |            6 |
+    | RF202 | Mumbai          | Sainagar Shirdi |      248 | 05:20:00 | Monday,Wednesday,Thursday,Friday,Saturday,Sunday         |            6 |
+    | RF203 | Mumbai          | Solapur         |      400 | 06:35:00 | Monday,Tuesday,Thursday,Friday,Saturday,Sunday           |            6 |
+    | RB202 | Sainagar Shirdi | Mumbai          |      248 | 05:20:00 | Monday,Wednesday,Thursday,Friday,Saturday,Sunday         |            5 |
+    | RF201 | New Delhi       | Himachal        |      412 | 06:10:00 | Monday,Tuesday,Wednesday,Friday,Saturday,Sunday          |            5 |
+    | RB203 | Solapur         | Mumbai          |      400 | 06:35:00 | Monday,Tuesday,Thursday,Friday,Saturday,Sunday           |            4 |
+    | RB204 | Goa             | Mumbai          |      588 | 06:00:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday |            4 |
+    | RF101 | Mumbai Central  | Gandhinagar     |      548 | 05:40:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday        |            4 |
+    | RB301 | Indore          | Bhopal          |      246 | 03:00:00 | Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday |            1 |
+    | RB501 | Ajmer           | Lonavala        |     1062 | 10:45:00 | Saturday                                                 |            1 |
+    +-------+-----------------+-----------------+----------+----------+----------------------------------------------------------+--------------+
+    
+    
 #### Display the details of the passengers who are frequent travellers with InterCity Express Trains. [Frequent traveller can be defined as the one who has travelled at least three times, irrespective of the route]
 
-SQL Query :
-select * from passenger where pid in (select pid from ticket group by pid having count(pid)>=3);
-
-Output :
-+------+----------------+------+----------------+------------+-----------------------------+
-| pid  | pname          | age  | agegroup       | contactno  | address                     |
-+------+----------------+------+----------------+------------+-----------------------------+
-| P001 | Aarav Deshmukh |    8 | Child          | 9876543210 | 123 Cherry Blossom St,Pune  |
-| P002 | Riya Khanna    |   10 | Child          | 8765432109 | 456 Serenity Avenue,Delhi   |
-| P004 | Priyanka Verma |   37 | Adult          | 8901234567 | 234 Serene Lane,Bangalore   |
-| P006 | Neha Mehta     |   33 | Adult          | 6543210987 | 890 Blissful Avenue,Kolkata |
-| P009 | Arvind Malik   |   75 | Senior Citizen | 7654321098 | 789 Celestial Road,Jaipur   |
-| P010 | Sunita Kapoor  |   68 | Senior Citizen | 8901278901 | 901 Stellar Street,Lucknow  |
-| P012 | Aisha Sharma   |   22 | Adult          | 8765412345 | 456 Nebula Road,Bhopal      |
-| P019 | Arjun Khanna   |    5 | Child          | 8765478901 | 789 Galactic Lane,Bangalore |
-| P020 | Kavya Sharma   |   11 | Child          | 7654389012 | 234 Starry Road,Chennai     |
-+------+----------------+------+----------------+------------+-----------------------------+
+    SQL Query :
+    select * from passenger where pid in (select pid from ticket group by pid having count(pid)>=3);
+    
+    Output :
+    +------+----------------+------+----------------+------------+-----------------------------+
+    | pid  | pname          | age  | agegroup       | contactno  | address                     |
+    +------+----------------+------+----------------+------------+-----------------------------+
+    | P001 | Aarav Deshmukh |    8 | Child          | 9876543210 | 123 Cherry Blossom St,Pune  |
+    | P002 | Riya Khanna    |   10 | Child          | 8765432109 | 456 Serenity Avenue,Delhi   |
+    | P004 | Priyanka Verma |   37 | Adult          | 8901234567 | 234 Serene Lane,Bangalore   |
+    | P006 | Neha Mehta     |   33 | Adult          | 6543210987 | 890 Blissful Avenue,Kolkata |
+    | P009 | Arvind Malik   |   75 | Senior Citizen | 7654321098 | 789 Celestial Road,Jaipur   |
+    | P010 | Sunita Kapoor  |   68 | Senior Citizen | 8901278901 | 901 Stellar Street,Lucknow  |
+    | P012 | Aisha Sharma   |   22 | Adult          | 8765412345 | 456 Nebula Road,Bhopal      |
+    | P019 | Arjun Khanna   |    5 | Child          | 8765478901 | 789 Galactic Lane,Bangalore |
+    | P020 | Kavya Sharma   |   11 | Child          | 7654389012 | 234 Starry Road,Chennai     |
+    +------+----------------+------+----------------+------------+-----------------------------+
 
 
 #### Display the details of trains which arrived late at their destination, more than once in this year; Include the driver and co-driver information in the output. 
 
-SQL Query :
-select d.name, d.contactno, d.homecity from driver d where d.did in ( select did from roster r where r.rid in ( select s.rid from schedule s , scheduletracking st where s.rid = st.rid and s.departure <> st.actual_departure or s.arrival <> st.actual_arrival)) order by name;
-
-Output :
-+-----------------+------------+------------+
-| name            | contactno  | homecity   |
-+-----------------+------------+------------+
-| Aditya Kulkarni | 9822334455 | Lucknow    |
-| Karthik Joshi   | 9765666778 | Indore     |
-| Rahul Reddy     | 9898776655 | Chandigarh |
-| Rajat Khurana   | 9944556677 | Jaipur     |
-| Suraj Pillai    | 9876001122 | Ahmedabad  |
-| Tanay Bhat      | 9876654321 | Bhopal     |
-+-----------------+------------+------------+
+    SQL Query :
+    select d.name, d.contactno, d.homecity from driver d where d.did in ( select did from roster r where r.rid in ( select s.rid from schedule s , scheduletracking st where s.rid = st.rid and s.departure <> st.actual_departure or s.arrival <> st.actual_arrival)) order by name;
+    
+    Output :
+    +-----------------+------------+------------+
+    | name            | contactno  | homecity   |
+    +-----------------+------------+------------+
+    | Aditya Kulkarni | 9822334455 | Lucknow    |
+    | Karthik Joshi   | 9765666778 | Indore     |
+    | Rahul Reddy     | 9898776655 | Chandigarh |
+    | Rajat Khurana   | 9944556677 | Jaipur     |
+    | Suraj Pillai    | 9876001122 | Ahmedabad  |
+    | Tanay Bhat      | 9876654321 | Bhopal     |
+    +-----------------+------------+------------+
